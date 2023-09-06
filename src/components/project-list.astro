@@ -5,18 +5,28 @@ import ProjectCard from "./project-card.astro"
 <section>
   <ProjectCard
     title='Fullstack'
-    desc=''
-    technologies={["Nextjs", "npm", "scss"]}
-    links={["arstartsrt", "arstrast"]}
+    technologies={["Nextjs", "Tailwindcss", "scss"]}
+    links={["https://github.com/SebastiansSala/x-clone", "arstrast"]}
     url='https://v4.brittanychiang.com/static/3b4d6e8f44baf7e6d7a0ed4b3e4d8d39/f47db/halcyon.avif'
-  />
+  >
+  <p>
+    Introducing my <span class="text-mark">Twitter clone</span>: a sleek, user-friendly app I built from the ground up. With <span class="text-mark">Supabase </span> as the backend, 
+    it offers essential features like <span class="text-mark">user blocking</span>, following posts, and seamless follow actions. Users can <span class="text-mark">post</span>, 
+    <span class="text-mark">like</span>, <span class="text-mark">comment</span>, 
+    and even exchange <span class="text-mark">private messages</span>. Join the conversation and experience social networking at its best.
+  </p>
+</ProjectCard>
   <ProjectCard
     title='Back-end'
-    desc='A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.'
+    
     technologies={["Nextjs", "npm", "scss"]}
     links={["arstartsrt", "arstrast"]}
     url='https://v4.brittanychiang.com/static/3b4d6e8f44baf7e6d7a0ed4b3e4d8d39/f47db/halcyon.avif'
-  />
+  >
+  <p>
+    desc='A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.'
+  </p>
+</ProjectCard>
   <ProjectCard
     title='Back-end'
     desc='A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.'
@@ -26,4 +36,8 @@ import ProjectCard from "./project-card.astro"
   />
 </section>
 
-<style></style>
+<style>
+  .text-mark{
+    color: #da61c4ff;
+  }
+</style>

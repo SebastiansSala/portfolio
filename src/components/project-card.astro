@@ -1,5 +1,5 @@
 ---
-const { title, desc, technologies, links, url } = Astro.props
+const { title, technologies, links, url } = Astro.props
 ---
 
 <div
@@ -10,7 +10,7 @@ const { title, desc, technologies, links, url } = Astro.props
 >
   <div class='card__body'>
     <h2 class='card__header'>{title}</h2>
-    <div class='card__description'>{desc}</div>
+    <div class='card__description'><slot /></div>
     <div class='card__technologies'>
       {technologies.map((technologie) => <span>{technologie}</span>)}
     </div>
