@@ -1,0 +1,101 @@
+---
+import Card from "./card.astro"
+import { frontendIcons, backendIcons, toolsIcons } from "../data/index"
+---
+
+<section class='container card__grid' id='tools'>
+  <Card
+    title='Front-end'
+    body='Learn how Astro works and explore the official API docs.'
+  >
+    {
+      frontendIcons.map(({ src, width }) => (
+        <div class='icon__container'>
+          <iconify-icon icon={src} class='icon' width={width} />
+        </div>
+      ))
+    }
+  </Card>
+  <Card
+    title='Back-end'
+    body='Learn how Astro works and explore the official API docs.'
+  >
+    {
+      backendIcons.map(({ src, width }) => (
+        <div class='icon__container'>
+          <iconify-icon icon={src} class='icon' width={width} />
+        </div>
+      ))
+    }
+  </Card>
+  <Card
+    title='Tools'
+    body='Learn how Astro works and explore the official API docs.'
+  >
+    {
+      toolsIcons.map(({ src, width }) => (
+        <div class='icon__container'>
+          <iconify-icon icon={src} width={width} />
+        </div>
+      ))
+    }
+  </Card>
+</section>
+
+<style>
+  .card__grid {
+    margin: auto;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
+
+    & .icon__container {
+      background-color: #2d2d2d;
+      position: relative;
+      width: 100px;
+      height: 50px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    & .popover {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      display: none;
+    }
+
+    & .icon__container:hover {
+      -webkit-animation: scale-up 0.2s ease-in-out both;
+      animation: scale-up 0.2s ease-in-out both;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .card__grid {
+      padding: 40px;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .card__grid {
+      padding: 40px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) and (max-width: 1279px) {
+    .card__grid {
+      padding: 40px;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .card__grid {
+      padding: 40px;
+    }
+  }
+</style>

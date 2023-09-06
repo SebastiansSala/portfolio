@@ -1,0 +1,59 @@
+---
+const { orientation } = Astro.props
+---
+
+<aside
+  class=`${orientation ? 'left' : 'right'} animate__animated animate__fadeIn`
+  style='animation-delay: 1.4s'
+>
+  <slot />
+</aside>
+
+<style>
+  aside {
+    width: 40px;
+    position: fixed;
+    bottom: 0;
+    left: 40px;
+    right: auto;
+    z-index: 50;
+    color: var(--light-slate);
+  }
+
+  aside::after {
+    content: "";
+    display: block;
+    width: 3px;
+    height: 90px;
+    margin: 0px auto;
+    background: var(--accent-gradient-primary);
+  }
+
+  .left {
+    left: 40px;
+    right: auto;
+  }
+
+  .right {
+    right: 40px;
+    left: auto;
+  }
+
+  @media screen and (max-width: 767px) {
+    aside {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    aside {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 1024px) and (max-width: 1279px) {
+  }
+
+  @media screen and (min-width: 1280px) {
+  }
+</style>

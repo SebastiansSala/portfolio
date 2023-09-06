@@ -1,0 +1,108 @@
+<header
+  class='nav__header'
+  id='header'
+  data-aos='fade-down'
+  data-aos-anchor-placement='top-bottom'
+>
+  <nav class='nav__bar'>
+    <ol>
+      <li class='animate__animated animate__fadeInDown'>
+        <a href='#about'>About</a>
+      </li>
+      <li
+        class='animate__animated animate__fadeInDown'
+        style='animation-delay: 0.2s'
+      >
+        <a href='#tools'>Tools</a>
+      </li>
+      <li
+        class='animate__animated animate__fadeInDown'
+        style='animation-delay: .4s'
+      >
+        <a href='#projects'>Projects</a>
+      </li>
+    </ol>
+    <button
+      class='animate__animated animate__fadeInDown'
+      style='animation-delay: .6s'>Resumen</button
+    >
+  </nav>
+</header>
+
+<script>
+  let prevScrollY = 0
+
+  function handleScroll() {
+    const header = document.getElementById("header")
+    const currentScrollY = window.scrollY
+
+    if (!header) return
+    if (currentScrollY > prevScrollY) {
+      header.style.transform = "translateY(-100%)"
+    } else {
+      header.style.transform = "translateY(0)"
+    }
+
+    prevScrollY = currentScrollY // Actualizar el valor del scrollY anterior
+  }
+
+  // Agregar el evento de scroll al documento
+  window.addEventListener("scroll", handleScroll)
+</script>
+
+<style>
+  .nav__header {
+    position: sticky;
+    color: white;
+    inset: 0;
+    z-index: 3;
+    padding: 0 50px;
+    backdrop-filter: blur(10px);
+    padding: 25px 50px;
+    box-shadow: 0 10px 30px -10px var(black);
+    animation: collapseAnimation 0.3s ease-in-out forwards;
+
+    & .nav__bar {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      z-index: 4;
+      gap: 10px;
+      align-items: center;
+
+      & ol {
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        & li {
+          margin: 0 5px;
+          font-size: var(--fs-xs);
+
+          & a {
+            color: var(--color-slate);
+          }
+        }
+      }
+
+      & span {
+        padding: 1px 2px;
+        cursor: pointer;
+      }
+
+      & button {
+        border: 3px solid #64ffda;
+        padding: 2px 4px;
+      }
+      & button:is(:hover) {
+        transition: var(--transition);
+        border-bottom: 8px;
+        border-right: 8px;
+      }
+    }
+  }
+</style>

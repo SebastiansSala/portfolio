@@ -1,0 +1,41 @@
+---
+const { text, size } = Astro.props
+---
+
+<button class='btn'>{text}</button>
+
+<style>
+  .btn {
+    display: inline-block;
+    font-size: clamp(0.5rem, 6.8vw, 2rem);
+    font-weight: 700;
+    position: relative;
+    color: var(--color-cyan);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn::before,
+  .btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom: 4px solid var(--color-cyan);
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .btn::before {
+    transform-origin: left;
+  }
+
+  .btn:hover::before,
+  .btn:hover::after {
+    transform: scaleX(1.2);
+  }
+</style>

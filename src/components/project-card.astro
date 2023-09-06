@@ -1,0 +1,149 @@
+---
+const { title, desc, technologies, links, url } = Astro.props
+---
+
+<div
+  class='card__grid'
+  data-aos='fade-in'
+  data-aos-duration='1000'
+  data-aos-once='true'
+>
+  <div class='card__body'>
+    <h2 class='card__header'>{title}</h2>
+    <div class='card__description'>{desc}</div>
+    <div class='card__technologies'>
+      {technologies.map((technologie) => <span>{technologie}</span>)}
+    </div>
+    <div class='card__links'>
+      <a
+        href={links[0]}
+        aria-label='GitHub Link'
+        rel='noopener noreferrer'
+        target='_blank'
+        ><svg
+          xmlns='http://www.w3.org/2000/svg'
+          role='img'
+          viewBox='0 0 24 24'
+          fill='none'
+          stroke='currentColor'
+          stroke-width='2'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+          class='feather feather-github'
+          ><title>GitHub</title><path
+            d='M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22'
+          ></path></svg
+        ></a
+      >
+      <a
+        href={links[1]}
+        aria-label='External Link'
+        class='external'
+        rel='noopener noreferrer'
+        target='_blank'
+        ><svg
+          xmlns='http://www.w3.org/2000/svg'
+          role='img'
+          viewBox='0 0 24 24'
+          fill='none'
+          stroke='currentColor'
+          stroke-width='2'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+          class='feather feather-external-link'
+          ><title>External Link</title><path
+            d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'
+          ></path><polyline points='15 3 21 3 21 9'></polyline><line
+            x1='10'
+            y1='14'
+            x2='21'
+            y2='3'></line></svg
+        ></a
+      >
+    </div>
+  </div>
+  <div class='card__image'>
+    <img src={url} alt={title} />
+  </div>
+</div>
+
+<style>
+  .card__grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    margin-bottom: 100px;
+
+    & .card__image {
+      box-shadow: 0 10px 30px -15px black;
+      grid-area: 1 / 6 / -1 / -1;
+      position: relative;
+      z-index: 1;
+
+      & img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &:nth-child(odd) > .card__body {
+      grid-column: 7 / -1;
+      text-align: right;
+    }
+
+    &:nth-child(odd) > .card__image {
+      grid-column: 1 / 8;
+
+      & .card__links,
+      .card__technologies {
+        justify-content: flex-start;
+      }
+    }
+
+    &:nth-child(even) > .card__body > .card__links,
+    &:nth-child(even) > .card__body > .card__technologies {
+      justify-content: flex-start;
+    }
+
+    & .card__body {
+      position: relative;
+      grid-area: 1 / 1 / -1 / 7;
+      text-align: left;
+      color: gray;
+
+      & .card__header {
+        color: white;
+        font-weight: 900;
+        font-size: 2rem;
+        margin-bottom: 25px;
+      }
+
+      & .card__description {
+        position: relative;
+        z-index: 2;
+        padding: 25px;
+        margin-bottom: 25px;
+        background-color: #112240;
+      }
+
+      & .card__technologies {
+        display: flex;
+        margin-bottom: 25px;
+        justify-content: flex-end;
+        gap: 4px;
+      }
+
+      & .card__links {
+        display: flex;
+        justify-content: flex-end;
+        gap: 6px;
+
+        & a > svg {
+          width: 20px;
+          color: gray;
+        }
+      }
+    }
+  }
+</style>

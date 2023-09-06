@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Hero from "../components/hero.astro"
+import Title from "../components/title.astro"
+import Tecnologies from "../components/technologies.astro"
+import ContactIcons from "../components/contact-icons.astro"
+import Header from "../components/header.astro"
+import Aside from "../components/aside.astro"
+import ProjectList from "../components/project-list.astro"
+---
+
+<Layout title='Sebastian Sala'>
+  <Header />
+  <main>
+    <Hero />
+    <Title title='Tools & Skills' order={true} id='tools' />
+    <Tecnologies />
+    <Title title='Projects' order={false} id='projects' />
+    <ProjectList />
+  </main>
+  <Aside orientation={true}>
+    <ContactIcons />
+  </Aside>
+  <Aside orientation={false}>
+    <div class='aside__email'>
+      <a href='mailto:sebastian_orko@hotmail.com'>
+        sebastian_orko@hotmail.com</a
+      >
+    </div>
+  </Aside>
+</Layout>
+
+<style>
+  .aside__email {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    position: relative;
+
+    & a {
+      color: var(--color-purple);
+      margin: 20px auto;
+      padding: 10px;
+      font-family: var(--font-mono);
+      font-size: var(--fz-lg);
+      line-height: var(--fz-lg);
+      letter-spacing: 0.1em;
+      writing-mode: vertical-rl;
+      -webkit-writing-mode: vertical-rl;
+    }
+  }
+</style>

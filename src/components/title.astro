@@ -1,0 +1,59 @@
+---
+const { title, order, id } = Astro.props
+import "aos/dist/aos.css"
+---
+
+{
+  order ? (
+    <div
+      class='title'
+      style='justify-content: flex-start;'
+      data-aos='fade-in'
+      data-aos-duration='1000'
+      data-aos-once='true'
+    >
+      <h2 class='text-gradient' id={id}>
+        {title}
+      </h2>
+      <div />
+    </div>
+  ) : (
+    <div
+      class='title'
+      data-aos='fade-in'
+      data-aos-duration='1000'
+      data-aos-once='true'
+    >
+      <div />
+      <h2 class='text-gradient' id={id}>
+        {title}
+      </h2>
+    </div>
+  )
+}
+
+<style>
+  .title {
+    margin: auto;
+    max-width: 150ch;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: end;
+    padding: 50px;
+
+    & h2 {
+      font-size: 3rem;
+      white-space: nowrap;
+      font-weight: 900;
+      margin: 0;
+      padding: 0;
+    }
+
+    & div {
+      background-image: var(--accent-gradient-primary);
+      height: 1px;
+      width: 400px;
+    }
+  }
+</style>
