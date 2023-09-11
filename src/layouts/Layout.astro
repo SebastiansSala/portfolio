@@ -1,201 +1,213 @@
---- 
+---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<link rel='stylesheet' href='https://unpkg.com/aos@next/dist/aos.css' />
-		<script src='https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js'/>
-	</head>
-	<body>
-		<slot />
-    	<script is:inline src='https://unpkg.com/aos@next/dist/aos.js'></script>
-    	<script is:inline>
-     	 AOS.init()
-    	</script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script
+      src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"
+    ></script>
+  </head>
+  <body>
+    <slot />
+    <script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script is:inline>
+      AOS.init();
+    </script>
+  </body>
 </html>
 
 <style is:global>
-    :root {
-      --animate-delay: 0.5s;
-      --accent: 124, 58, 237;
-      --accent-gradient: linear-gradient(
-        45deg,
-        rgb(var(--accent)),
-        #da62c4 30%,
-        white 60%
-      );
-      --accent-gradient-primary: linear-gradient(
-        45deg,
-        rgb(var(--accent)),
-        #da62c4 30%
-      );
-      --color-background-inset: #0d0e11;
-      --color-cyan: #23ffca;
-      --color-purple: #da61c4;
-      --color-lighten-rgb: 255, 255, 255;
-      --color-background-clear: #292c31;
-      --light-slate: #a8b2d1;
+  :root {
+    --animate-delay: 0.5s;
+    --accent: 124, 58, 237;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      #da62c4 30%,
+      white 60%
+    );
+    --accent-gradient-primary: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      #da62c4 30%
+    );
+    --color-background-inset: #5c5470;
+    --color-cyan: #23ffca;
+    --color-purple: #5c5470;
+    --color-purple-hover: #b9b4c7;
 
-      --fz-xxs: 12px;
-      --fz-lg: 18px;
-      --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+    --color-lighten-rgb: 255, 255, 255;
+    --color-background-clear: #292c31;
+    --light-slate: #a8b2d1;
 
-      --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
-    }
+    --fz-xxs: 12px;
+    --fz-lg: 18px;
+    --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
 
-    html,
-    body,
-    div,
-    span,
-    applet,
-    object,
-    iframe,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    blockquote,
-    pre,
-    a,
-    abbr,
-    acronym,
-    address,
-    big,
-    cite,
-    code,
-    del,
-    dfn,
-    em,
-    img,
-    ins,
-    kbd,
-    q,
-    s,
-    samp,
-    small,
-    strike,
-    strong,
-    sub,
-    sup,
-    tt,
-    var,
-    b,
-    u,
-    i,
-    center,
-    dl,
-    dt,
-    dd,
-    ol,
-    ul,
-    li,
-    fieldset,
-    form,
-    label,
-    legend,
-    table,
-    caption,
-    tbody,
-    tfoot,
-    thead,
-    tr,
-    th,
-    td {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font-size: 100%;
-      font-weight: normal;
-      vertical-align: baseline;
-    }
+    --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
 
-    ul,
-    ol {
-      list-style: none;
-    }
+  html,
+  body,
+  div,
+  span,
+  applet,
+  object,
+  iframe,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  blockquote,
+  pre,
+  a,
+  abbr,
+  acronym,
+  address,
+  big,
+  cite,
+  code,
+  del,
+  dfn,
+  em,
+  img,
+  ins,
+  kbd,
+  q,
+  s,
+  samp,
+  small,
+  strike,
+  strong,
+  sub,
+  sup,
+  tt,
+  var,
+  b,
+  u,
+  i,
+  center,
+  dl,
+  dt,
+  dd,
+  ol,
+  ul,
+  li,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font-weight: normal;
+    vertical-align: baseline;
+  }
 
-    a {
-      text-decoration: none;
-      display: inline-block;
-      transition: var(--transition);
-      font-family: var(--font-mono);
-      line-height: var(--fz-lg);
-    }
+  ul,
+  ol {
+    list-style: none;
+  }
 
-    html {
-      font-family: system-ui, sans-serif;
-      scroll-behavior: smooth;
-    }
+  a {
+    text-decoration: none;
+    display: inline-block;
+    transition: var(--transition);
+    font-family: var(--font-mono);
+    line-height: var(--fz-lg);
+  }
 
-    body {
-      margin: 0;
-      position: relative;
-      background-color: #1b1b1b;
-    }
+  html {
+    font-family: system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
 
-    code {
-      font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-        DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-    }
+  body {
+    margin: 0;
+    position: relative;
+    background-color: #352f44;
+  }
 
-    section {
-      margin: 0px auto;
-      padding: 100px 0px;
-      max-width: 1000px;
-    }
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
 
-    .container {
-      max-width: 1280px;
-      margin: auto;
-    }
+  section {
+    margin: 0px auto;
+    padding: 100px 0px;
+    max-width: 1000px;
+  }
 
-    .text-shadow {
-      text-shadow: 0 0 3rem var(--color-background-inset),
-        0 0 2rem var(--color-background-inset);
-    }
+  .container {
+    max-width: 1280px;
+    margin: auto;
+  }
 
-    .text-gradient {
-      background-image: var(--accent-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-size: 400%;
-      background-position: 0%;
-    }
+  .text-shadow {
+    text-shadow:
+      0 0 3rem var(--color-background-inset),
+      0 0 2rem var(--color-background-inset);
+  }
 
-    @-webkit-keyframes scale-up {
-      0% {
-        -webkit-transform: scale(0.5);
-        transform: scale(0.5);
-      }
-      100% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-      }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+
+  @-webkit-keyframes scale-up {
+    0% {
+      -webkit-transform: scale(0.5);
+      transform: scale(0.5);
     }
-    @keyframes scale-up {
-      0% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-      }
-      100% {
-        -webkit-transform: scale(1.2);
-        transform: scale(1.2);
-      }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
     }
-  </style>
+  }
+  @keyframes scale-up {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+    100% {
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+    }
+  }
+</style>

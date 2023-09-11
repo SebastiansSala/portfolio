@@ -1,0 +1,35 @@
+<footer class="">
+  <a
+    class="text-center"
+    href="https://www.linkedin.com/in/bchiang7/"
+    target="_blank"
+  >
+    Designed Inspired from <span>Brittany Chiang</span>
+  </a>
+</footer>
+
+<style>
+  footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+
+    & a {
+      color: var(--color-purple);
+      cursor: pointer;
+
+      & span {
+        color: var(--color-purple);
+        text-decoration: none;
+        transition: color 0.2s ease-in-out;
+      }
+    }
+
+    & a:hover {
+      & span {
+        color: var(--color-purple-hover);
+      }
+    }
+  }
+</style>

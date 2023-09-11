@@ -1,33 +1,35 @@
 ---
-import Layout from "../layouts/Layout.astro"
-import Hero from "../components/hero.astro"
-import Title from "../components/title.astro"
-import Tecnologies from "../components/technologies.astro"
-import ContactIcons from "../components/contact-icons.astro"
-import Header from "../components/header.astro"
-import Aside from "../components/aside.astro"
-import ProjectList from "../components/project-list.astro"
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/hero.astro";
+import Title from "../components/title.astro";
+import Tecnologies from "../components/technologies.astro";
+import ContactIcons from "../components/contact-icons.astro";
+import Header from "../components/header.astro";
+import Aside from "../components/aside.astro";
+import ProjectList from "../components/project-list.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<Layout title='Sebastian Sala'>
+<Layout title="Sebastian Sala">
   <Header />
   <main>
     <Hero />
-    <Title title='Tools & Skills' order={true} id='tools' />
+    <Title title="Tools & Skills" order={true} id="tools" />
     <Tecnologies />
-    <Title title='Projects' order={false} id='projects' />
+    <Title title="Projects" order={false} id="projects" />
     <ProjectList />
   </main>
   <Aside orientation={true}>
     <ContactIcons />
   </Aside>
   <Aside orientation={false}>
-    <div class='aside__email'>
-      <a href='mailto:sebastian_orko@hotmail.com'>
+    <div class="aside__email">
+      <a href="mailto:sebastian_orko@hotmail.com">
         sebastian_orko@hotmail.com</a
       >
     </div>
   </Aside>
+  <Footer />
 </Layout>
 
 <style>
@@ -50,9 +52,13 @@ import ProjectList from "../components/project-list.astro"
       -webkit-writing-mode: vertical-rl;
     }
 
-	& a:hover{
-		transition: 0.3s;
-    transform: scale(1.1) translateY(-10px);
-	}
+    & a:hover {
+      color: var(--color-purple-hover);
+    }
+
+    & a:hover {
+      transition: 0.3s;
+      transform: scale(1.1) translateY(-10px);
+    }
   }
 </style>

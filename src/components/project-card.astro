@@ -1,70 +1,72 @@
 ---
-const { title, technologies, links, url } = Astro.props
+const { title, technologies, links, url } = Astro.props;
 ---
 
 <div
-  class='card__grid'
-  data-aos='fade-in'
-  data-aos-duration='1000'
-  data-aos-once='true'
+  class="card__grid"
+  data-aos="fade-in"
+  data-aos-duration="1000"
+  data-aos-once="true"
 >
-  <div class='card__body'>
-    <h2 class='card__header'>{title}</h2>
-    <div class='card__description'><slot /></div>
-    <div class='card__technologies'>
-      {technologies.map((technologie) => <span>{technologie}</span>)}
+  <div class="card__body">
+    <h2 class="card__header">{title}</h2>
+    <div class="card__description"><slot /></div>
+    <div class="card__technologies">
+      <ul>
+        {technologies.map((technologie) => <li>{technologie}</li>)}
+      </ul>
     </div>
-    <div class='card__links'>
+    <div class="card__links">
       <a
         href={links[0]}
-        aria-label='GitHub Link'
-        rel='noopener noreferrer'
-        target='_blank'
+        aria-label="GitHub Link"
+        rel="noopener noreferrer"
+        target="_blank"
         ><svg
-          xmlns='http://www.w3.org/2000/svg'
-          role='img'
-          viewBox='0 0 24 24'
-          fill='none'
-          stroke='currentColor'
-          stroke-width='2'
-          stroke-linecap='round'
-          stroke-linejoin='round'
-          class='feather feather-github'
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-github"
           ><title>GitHub</title><path
-            d='M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22'
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
           ></path></svg
         ></a
       >
       <a
         href={links[1]}
-        aria-label='External Link'
-        class='external'
-        rel='noopener noreferrer'
-        target='_blank'
+        aria-label="External Link"
+        class="external"
+        rel="noopener noreferrer"
+        target="_blank"
         ><svg
-          xmlns='http://www.w3.org/2000/svg'
-          role='img'
-          viewBox='0 0 24 24'
-          fill='none'
-          stroke='currentColor'
-          stroke-width='2'
-          stroke-linecap='round'
-          stroke-linejoin='round'
-          class='feather feather-external-link'
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-external-link"
           ><title>External Link</title><path
-            d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'
-          ></path><polyline points='15 3 21 3 21 9'></polyline><line
-            x1='10'
-            y1='14'
-            x2='21'
-            y2='3'></line></svg
+            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+          ></path><polyline points="15 3 21 3 21 9"></polyline><line
+            x1="10"
+            y1="14"
+            x2="21"
+            y2="3"></line></svg
         ></a
       >
     </div>
   </div>
-  <div class='card__image'>
+  <a class="card__image" href={links[1]} target="_blank">
     <img src={url} alt={title} />
-  </div>
+  </a>
 </div>
 
 <style>
@@ -80,10 +82,18 @@ const { title, technologies, links, url } = Astro.props
       grid-area: 1 / 6 / -1 / -1;
       position: relative;
       z-index: 1;
+      height: 100%;
+      cursor: pointer;
 
       & img {
         width: 100%;
         height: 100%;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease-in-out;
+      }
+
+      & img:hover {
+        filter: grayscale(0%);
       }
     }
 
@@ -131,7 +141,16 @@ const { title, technologies, links, url } = Astro.props
         display: flex;
         margin-bottom: 25px;
         justify-content: flex-end;
-        gap: 4px;
+        color: var(--color-purple);
+        white-space: nowrap;
+        gap: 8px;
+
+        & ul {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          max-width: 80%;
+        }
       }
 
       & .card__links {

@@ -1,59 +1,56 @@
-<header
-  class='nav__header'
-  id='header'
-  data-aos='fade-down'
-  data-aos-anchor-placement='top-bottom'
->
-  <nav class='nav__bar'>
-    <ol>
-      <li class='animate__animated animate__fadeInDown'>
-        <a href='#about'>About</a>
+<header id="header" data-aos="fade-down" data-aos-anchor-placement="top-bottom">
+  <nav class="nav__bar">
+    <ul>
+      <li class="animate__animated animate__fadeInDown">
+        <a href="#about">About</a>
       </li>
       <li
-        class='animate__animated animate__fadeInDown'
-        style='animation-delay: 0.2s'
+        class="animate__animated animate__fadeInDown"
+        style="animation-delay: 0.2s"
       >
-        <a href='#tools'>Tools</a>
+        <a href="#tools">Tools</a>
       </li>
       <li
-        class='animate__animated animate__fadeInDown'
-        style='animation-delay: .4s'
+        class="animate__animated animate__fadeInDown"
+        style="animation-delay: .4s"
       >
-        <a href='#projects'>Projects</a>
+        <a href="#projects">Projects</a>
       </li>
-    </ol>
-    <button
-      class='animate__animated animate__fadeInDown'
-      style='animation-delay: .6s'>Resumen</button
-    >
+      <li
+        class="animate__animated animate__fadeInDown resume"
+        style="animation-delay: .6s"
+      >
+        <a href="">Resumen</a>
+      </li>
+    </ul>
   </nav>
 </header>
 
 <script>
-  let prevScrollY = 0
+  let prevScrollY = 0;
 
   function handleScroll() {
-    const header = document.getElementById("header")
-    const currentScrollY = window.scrollY
+    const header = document.getElementById("header");
+    const currentScrollY = window.scrollY;
 
-    if (!header) return
+    if (!header) return;
     if (currentScrollY > prevScrollY) {
-      header.style.transform = "translateY(-100%)"
+      header.style.transform = "translateY(-100%)";
     } else {
-      header.style.transform = "translateY(0)"
+      header.style.transform = "translateY(0)";
     }
 
-    prevScrollY = currentScrollY // Actualizar el valor del scrollY anterior
+    prevScrollY = currentScrollY; // Actualizar el valor del scrollY anterior
   }
 
   // Agregar el evento de scroll al documento
-  window.addEventListener("scroll", handleScroll)
+  window.addEventListener("scroll", handleScroll);
 </script>
 
 <style>
-  .nav__header {
+  header {
     position: sticky;
-    color: #da61c4ff;
+    color: var(--color-purple);
     inset: 0;
     z-index: 3;
     padding: 0 50px;
@@ -70,7 +67,7 @@
       gap: 10px;
       align-items: center;
 
-      & ol {
+      & ul {
         display: flex;
         gap: 20px;
         justify-content: space-between;
@@ -78,6 +75,7 @@
         padding: 0;
         margin: 0;
         list-style: none;
+        font-size: 1.25rem;
 
         & li {
           margin: 0 5px;
@@ -85,7 +83,12 @@
 
           & a {
             color: var(--color-slate);
+            padding: 8px;
           }
+        }
+
+        & li:hover {
+          color: var(--color-purple-hover);
         }
       }
 
@@ -94,14 +97,15 @@
         cursor: pointer;
       }
 
-      & button {
-        border: 3px solid #64ffda;
+      & a {
+        border: 3px solid var(--color-purple);
         padding: 2px 4px;
+        font-size: 1.25rem;
       }
-      & button:is(:hover) {
-        transition: var(--transition);
-        border-bottom: 8px;
-        border-right: 8px;
+
+      & a:hover {
+        cursor: pointer;
+        color: var(--color-purple-hover);
       }
     }
   }
